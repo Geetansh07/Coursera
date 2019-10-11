@@ -5,3 +5,20 @@ fh = open(fname)
 for line in fh:
     line = line.rstrip()
     print(line.upper())
+
+#Assignment 7.2
+# Use the file name mbox-short.txt as the file name
+fname = input("Enter file name: ")
+fh = open(fname)
+list1 = []
+for line in fh:
+    if not line.startswith("X-DSPAM-Confidence:") : continue
+    abc = line.find('0')
+    num = float(line[abc:])
+    list1.append(num)
+num = 0
+for i in list1:
+    num += i
+average = num/len(list1)
+
+print("Average spam confidence:",average)
