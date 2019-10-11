@@ -1,0 +1,21 @@
+#Assignment
+
+name = input("Enter file:")
+count = dict()
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+for line in handle:
+    if line.startswith("From "):
+        line = line.split()
+        time = line[5]
+        time = time.split(':')
+        hours = time[0]
+        count[hours] = count.get(hours,0)+1
+        
+tups = count.items()
+tups = sorted(tups)
+for key,value in tups:
+    print(key,value)
+    
+    
+    #ALL THE BEST!
