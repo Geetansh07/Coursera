@@ -1,0 +1,19 @@
+#Assignment 9.4
+name = input("Enter file:")
+count = dict()
+if len(name) < 1 : name = "mbox-short.txt"
+handle = open(name)
+for line in handle:
+    if line.startswith('From '):
+        line = line.split()
+        name = line[1]
+        count[name] = count.get(name,0)+1
+
+word = None
+num = None
+for key,value in count.items():
+        if num is None or value > num:
+            word = key
+            num = value
+            
+print(word,num)
